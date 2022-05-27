@@ -15,3 +15,5 @@
     res.end();
   }
   ```
+  ### Update #1
+  - For production, set `NEXTAUTH_URL=https://zcal.vercel.app/` (or any production url) to prevent not redirecting after logging in. **(WRONG URL WILL NOT RESULT IN REDIRECTION)**

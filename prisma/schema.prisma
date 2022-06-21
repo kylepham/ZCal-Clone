@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model User {
+  id      String   @id @default(uuid())
+  email   String   @unique
+  name    String
+  invites Invite[]
+}
+
+model Invite {
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  events            Event[]
+  location          Location @default(GOOGLE_MEET)
+  displayedTimezone Timezone @default(LOCAL)
+  timezone          String
+  name              String
+  description       String?
+  duration          Int
+  slotIncrement     Int?
+  minimumNotice     Int?
+  dateRange         Int
+  intervals         String
+}
+
+model Event {
+  id           String   @id @default(uuid())
+  inviteId     String
+  invite       Invite   @relation(fields: [inviteId], references: [id], onDelete: Cascade)
+  inviteeName  String
+  inviteeEmail String
+  startDate    DateTime
+}
+
+enum Location {
+  GOOGLE_MEET
+}
+
+enum Timezone {
+  LOCAL
+  LOCKED
+}

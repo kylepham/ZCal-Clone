@@ -1,0 +1,7 @@
+mutation DeleteInvite($input: DeleteInviteInput!) {
+  deleteInvite(input: $input) {
+    invites {
+      ...Invite
+    }
+  }
+}

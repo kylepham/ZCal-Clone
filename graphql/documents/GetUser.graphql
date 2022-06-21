@@ -1,0 +1,8 @@
+query GetUser($input: UserQueryInput!) {
+  user(input: $input) {
+    ...User
+    invites {
+      ...Invite
+    }
+  }
+}

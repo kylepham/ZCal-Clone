@@ -1,0 +1,110 @@
+scalar IntervalsScalar
+
+enum Location {
+  GOOGLE_MEET
+}
+
+enum DisplayedTimezone {
+  LOCAL
+  LOCKED
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+  invites: [Invite!]!
+}
+
+type Invite {
+  id: ID!
+  user: User
+  events: [Event!]!
+  location: Location!
+  displayedTimezone: DisplayedTimezone!
+  timezone: String!
+  name: String!
+  description: String
+  duration: Int!
+  slotIncrement: Int
+  minimumNotice: Int
+  dateRange: Int!
+  intervals: IntervalsScalar!
+}
+
+type Event {
+  id: ID!
+  inviteeName: String!
+  inviteeEmail: String!
+  startDate: String!
+}
+
+type Query {
+  user(input: UserQueryInput!): User
+  invite(input: InviteQueryInput!): Invite
+  event(input: EventQueryInput!): Event
+}
+
+type Mutation {
+  createInvite(input: CreateInviteInput!): User
+  updateInvite(input: UpdateInviteInput!): User
+  deleteInvite(input: DeleteInviteInput!): User
+  createEvent(input: CreateEventInput!): Event
+  deleteEvent(input: DeleteEventInput!): Event
+}
+
+input UserQueryInput {
+  email: String!
+  name: String!
+}
+
+input InviteQueryInput {
+  id: ID!
+}
+
+input EventQueryInput {
+  id: ID!
+}
+
+input CreateInviteInput {
+  userId: String!
+  location: Location!
+  displayedTimezone: DisplayedTimezone!
+  timezone: String!
+  name: String!
+  description: String
+  duration: Int!
+  slotIncrement: Int
+  minimumNotice: Int
+  dateRange: Int!
+  intervals: IntervalsScalar!
+}
+
+input UpdateInviteInput {
+  id: String!
+  location: Location
+  displayedTimezone: DisplayedTimezone
+  timezone: String
+  name: String
+  description: String
+  duration: Int
+  slotIncrement: Int
+  minimumNotice: Int
+  dateRange: Int
+  intervals: IntervalsScalar
+}
+
+input DeleteInviteInput {
+  id: ID!
+}
+
+input CreateEventInput {
+  inviteId: String!
+  inviteeName: String!
+  inviteeEmail: String!
+  startDate: String!
+}
+
+input DeleteEventInput {
+  id: ID!
+}

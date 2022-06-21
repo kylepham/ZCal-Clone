@@ -1,0 +1,15 @@
+overwrite: true
+schema: "graphql/schema.graphql"
+documents: null
+generates:
+  graphql/generated/types.ts:
+    config:
+      mapperTypeSuffix: Model # so that CodeGen refers to User as UserModel, etc.
+      mappers:
+        User: "@prisma/client#User"
+        Invite: "@prisma/client#Invite"
+        Event: "@prisma/client#Event"
+      contextType: ../../pages/api/graphql#GraphQLContext # relative to the file `types.ts`
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"

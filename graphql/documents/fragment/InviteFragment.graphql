@@ -1,0 +1,16 @@
+fragment Invite on Invite {
+  id
+  name
+  description
+  location
+  timezone
+  displayedTimezone
+  duration
+  dateRange
+  intervals
+  slotIncrement
+  minimumNotice
+  events {
+    ...Event
+  }
+}

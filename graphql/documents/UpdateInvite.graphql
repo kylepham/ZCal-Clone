@@ -1,0 +1,7 @@
+mutation UpdateInvite($input: UpdateInviteInput!) {
+  updateInvite(input: $input) {
+    invites {
+      ...Invite
+    }
+  }
+}

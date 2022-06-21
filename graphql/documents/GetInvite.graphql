@@ -1,0 +1,9 @@
+query GetInvite($input: InviteQueryInput!) {
+  invite(input: $input) {
+    ...Invite
+    user {
+      name
+      email
+    }
+  }
+}

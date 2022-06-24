@@ -27,7 +27,7 @@ model Invite {
   name              String
   description       String?
   duration          Int
-  slotIncrement     Int?
+  slotIncrement     Int
   minimumNotice     Int?
   dateRange         Int
   intervals         String

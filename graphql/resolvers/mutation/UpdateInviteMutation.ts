@@ -14,7 +14,7 @@ const UpdateInviteMutation: MutationResolvers["updateInvite"] = async (_, { inpu
         name: input.name || undefined,
         description: input.description,
         duration: input.duration || undefined,
-        slotIncrement: input.slotIncrement,
+        slotIncrement: input.slotIncrement || undefined,
         minimumNotice: input.minimumNotice,
         dateRange: input.dateRange || undefined,
         intervals: input.intervals || undefined,

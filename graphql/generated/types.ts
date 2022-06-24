@@ -36,7 +36,7 @@ export type CreateInviteInput = {
   location: Location;
   minimumNotice?: InputMaybe<Scalars['Int']>;
   name: Scalars['String'];
-  slotIncrement?: InputMaybe<Scalars['Int']>;
+  slotIncrement: Scalars['Int'];
   timezone: Scalars['String'];
   userId: Scalars['String'];
 };
@@ -78,7 +78,7 @@ export type Invite = {
   location: Location;
   minimumNotice?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
-  slotIncrement?: Maybe<Scalars['Int']>;
+  slotIncrement: Scalars['Int'];
   timezone: Scalars['String'];
   user?: Maybe<User>;
 };
@@ -186,7 +186,7 @@ export type CreateInviteMutationVariables = Exact<{
 }>;
 
 
-export type CreateInviteMutation = { __typename?: 'Mutation', createInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
+export type CreateInviteMutation = { __typename?: 'Mutation', createInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
 
 export type DeleteEventMutationVariables = Exact<{
   input: DeleteEventInput;
@@ -200,32 +200,32 @@ export type DeleteInviteMutationVariables = Exact<{
 }>;
 
 
-export type DeleteInviteMutation = { __typename?: 'Mutation', deleteInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
+export type DeleteInviteMutation = { __typename?: 'Mutation', deleteInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
 
 export type GetInviteQueryVariables = Exact<{
   input: InviteQueryInput;
 }>;
 
 
-export type GetInviteQuery = { __typename?: 'Query', invite?: { __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, user?: { __typename?: 'User', name: string, email: string } | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> } | null };
+export type GetInviteQuery = { __typename?: 'Query', invite?: { __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, user?: { __typename?: 'User', name: string, email: string } | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> } | null };
 
 export type GetUserQueryVariables = Exact<{
   input: UserQueryInput;
 }>;
 
 
-export type GetUserQuery = { __typename?: 'Query', user?: { __typename?: 'User', id: string, name: string, email: string, invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
+export type GetUserQuery = { __typename?: 'Query', user?: { __typename?: 'User', id: string, name: string, email: string, invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
 
 export type UpdateInviteMutationVariables = Exact<{
   input: UpdateInviteInput;
 }>;
 
 
-export type UpdateInviteMutation = { __typename?: 'Mutation', updateInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
+export type UpdateInviteMutation = { __typename?: 'Mutation', updateInvite?: { __typename?: 'User', invites: Array<{ __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> }> } | null };
 
 export type EventFragment = { __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string };
 
-export type InviteFragment = { __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement?: number | null, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> };
+export type InviteFragment = { __typename?: 'Invite', id: string, name: string, description?: string | null, location: Location, timezone: string, displayedTimezone: DisplayedTimezone, duration: number, dateRange: number, intervals: any, slotIncrement: number, minimumNotice?: number | null, events: Array<{ __typename?: 'Event', id: string, inviteeName: string, inviteeEmail: string, startDate: string }> };
 
 export type UserFragment = { __typename?: 'User', id: string, name: string, email: string };
 
@@ -365,7 +365,7 @@ export type InviteResolvers<ContextType = GraphQLContext, ParentType extends Res
   location?: Resolver<ResolversTypes['Location'], ParentType, ContextType>;
   minimumNotice?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  slotIncrement?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  slotIncrement?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   timezone?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;

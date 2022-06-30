@@ -10,4 +10,9 @@ export default NextAuth({
     }),
   ],
   secret: "secret",
+  callbacks: {
+    redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
+  },
 });

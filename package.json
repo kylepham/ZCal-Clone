@@ -23,6 +23,7 @@
     "@mui/x-date-pickers": "^5.0.0-alpha.7",
     "@prisma/client": "3.14.0",
     "apollo-server-micro": "^3.8.1",
+    "googleapis": "^104.0.0",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",
     "micro": "^9.3.4",

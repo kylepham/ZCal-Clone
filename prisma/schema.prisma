@@ -16,6 +16,13 @@ model User {
   invites Invite[]
 }
 
+model RefreshToken {
+  email        String
+  refreshToken String
+
+  @@id([email])
+}
+
 model Invite {
   id                String   @id @default(uuid())
   userId            String
